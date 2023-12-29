@@ -6,11 +6,14 @@ export default defineConfig({
   title: '风禾源泉',
   description: '风禾源泉',
   base: '/mty/',
+  appearance: 'dark',
+  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   themeConfig: {
     search: {
       provider: 'local'
     },
-    logo: '/blue.jpg',
+    logo: '/favicon.png',
+    // siteTitle: true,
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
@@ -35,7 +38,7 @@ export default defineConfig({
     ],
     footer: {
       message: '在 MIT 许可下发布。',
-      copyright: '版权所有 © 2023-至今 AKUN'
+      copyright: '版权所有 © 2023-至今 MTY'
     },
   }
 })

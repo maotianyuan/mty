@@ -5,7 +5,10 @@ layout: home
 hero:
   name: "风禾源泉"
   text: "风禾源泉"
-  tagline: My great project tagline
+  tagline: 光阴不在 境遇难得
+  image:
+    src: /favicon.png
+    alt: MTY
   actions:
     - theme: brand
       text: Markdown Examples

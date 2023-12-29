@@ -1,12 +1,11 @@
-// import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
-export default {
+export default defineConfig({
   lang: 'zh-CN',
   title: '风禾源泉',
   description: '风禾源泉',
   base: '/mty/',
-  appearance: 'dark',
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   themeConfig: {
     search: {
@@ -37,8 +36,8 @@ export default {
       { icon: 'github', link: 'https://github.com/maotianyuan/mty'  }
     ],
     footer: {
-      message: '在 MIT 许可下发布。',
+      message: '在 MIT 许可下发布',
       copyright: '版权所有 © 2023-至今 MTY'
     },
   }
-}
+})

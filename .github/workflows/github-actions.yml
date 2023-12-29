@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: yarn
 
 
@@ -32,9 +32,7 @@ jobs:
         run: yarn install
 
       - name: Build with VitePress
-        run: |
-          yarn docs:build
-          touch docs/.vitepress/dist/.nojekyll
+        run: yarn docs:build
 
 
       - name: Deploy

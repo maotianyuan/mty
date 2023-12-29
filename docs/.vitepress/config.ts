@@ -27,11 +27,11 @@ export default defineConfig({
       }
     ],
     editLink: {
-      pattern: 'https://github.com/maotianyuan/fhyq/:path',
+      pattern: 'https://github.com/maotianyuan/mty/blob/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/maotianyuan/fhyq'  }
+      { icon: 'github', link: 'https://github.com/maotianyuan/mty'  }
     ],
     footer: {
       message: '在 MIT 许可下发布。',

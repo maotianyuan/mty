@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           cache: yarn
 
 
@@ -42,7 +42,6 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTION_DEPLOY_KEY }}
           publish_dir: docs/.vitepress/dist
-          enable_jekyll: false
 
 #      - name: Upload artifact
 #        uses: actions/upload-pages-artifact@v2

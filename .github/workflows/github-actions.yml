@@ -9,20 +9,30 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Not needed if lastUpdated is not enabled
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn install
-      - name: Build
+          cache: yarn
+
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build with VitePress
         run: |
           yarn docs:build
           touch docs/.vitepress/dist/.nojekyll
 
-      # - name: CreateTag
-      #   run git tag -a
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTION_DEPLOY_KEY }}
-          publish_dir: ./docs/.vitepress/dist 
+          publish_dir: docs/.vitepress/dist 

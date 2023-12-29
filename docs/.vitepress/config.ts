@@ -5,7 +5,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: '风禾源泉',
   description: '风禾源泉',
-  base: '/FHYQ/',
+  base: '/mty/',
   themeConfig: {
     search: {
       provider: 'local'

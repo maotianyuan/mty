@@ -1,7 +1,7 @@
-import { defineConfig } from 'vitepress'
+// import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default {
   lang: 'zh-CN',
   title: '风禾源泉',
   description: '风禾源泉',
@@ -41,4 +41,4 @@ export default defineConfig({
       copyright: '版权所有 © 2023-至今 MTY'
     },
   }
-})
+}

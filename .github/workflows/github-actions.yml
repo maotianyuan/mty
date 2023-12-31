@@ -8,7 +8,7 @@ jobs:
     # 安装 pnpm 包管理工具 (如果用 npm 就不需要这个)
     - uses: pnpm/action-setup@v2
       with:
-        version: 8
+        version: 7
 
     # 安装依赖和打包
     - name: Install and Build

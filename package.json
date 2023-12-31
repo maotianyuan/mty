@@ -14,7 +14,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.69.6",
-    "vitepress": "^1.0.0-rc.33"
+    "@types/node": "^20.10.6",
+    "vitepress": "1.0.0-rc.34"
+  },
+  "dependencies": {
+    "vite-plugin-vitepress-auto-sidebar": "^1.6.2"
   }
 }

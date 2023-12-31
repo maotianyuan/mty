@@ -1,0 +1,1 @@
+import{_ as s,c as l,o as e,U as t}from"./chunks/framework.iGn5XQY6.js";const h=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"前端/面试题/css/基础.md","filePath":"前端/面试题/css/基础.md"}'),a={name:"前端/面试题/css/基础.md"},i=t("",2),o=[i];function _(u,c,r,S,n,p){return e(),l("div",null,o)}const y=s(a,[["render",_]]);export{h as __pageData,y as default};

@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "风禾"
   text: "源泉"
-  tagline: 光阴不在 境遇难得
+  tagline: 境遇难得，光阴不再
   image:
     src: /favicon.png
     alt: MTY

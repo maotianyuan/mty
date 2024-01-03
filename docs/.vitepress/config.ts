@@ -7,7 +7,7 @@ export default defineConfig({
   title: '风禾源泉',
   description: '光阴不再，境遇难得',
   base: '/mty/',
-  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+  head: [['link', { rel: 'icon', href: '/mty/favicon.png' }]],
   vite: {
     plugins: [
       // add plugin
@@ -20,19 +20,45 @@ export default defineConfig({
       })
     ]
   },
+  lastUpdated: true,
   themeConfig: {
     search: {
-      provider: 'local'
+      provider: 'local',
     },
     logo: '/favicon.png',
     // siteTitle: true,
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '前端', link: '/前端/面试题/题目' }
+      {
+        text: '前端',
+        items: [
+          { text: '面试题', link: '/前端/面试题/题目' },
+          { text: '跨端', link: '/前端/跨端/Electron' },
+          { text: '框架', link: '/前端/框架' },
+          { text: '优化', link: '/前端/优化' },
+          { text: '软技能', link: '/前端/软技能' },
+        ]
+      },
+      {
+        text: '成长',
+        items: [
+          { text: '书籍', link: '/成长/书籍/人物传记/曾国藩家书' },
+          { text: '规律', link: '/成长/规律/index' },
+          { text: '反思', link: '/成长/反思/恒' },
+          { text: '思维', link: '/成长/思维/独立思考' },
+        ]
+      },
+      {
+        text: '关于',
+        items: [
+          { text: '博客', link: 'https://www.yuque.com/mty/here' },
+          { text: '掘金', link: 'https://juejin.cn/user/2576910988085624/posts' },
+        ]
+      }
     ],
     editLink: {
-      pattern: 'https://github.com/maotianyuan/mty/blob/main/docs/:path',
+      pattern: 'https://github.com/maotianyuan/mty/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
     socialLinks: [

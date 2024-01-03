@@ -3193,18 +3193,6 @@ function isVNodeSuspensible(vnode) {
   var _a;
   return ((_a = vnode.props) == null ? void 0 : _a.suspensible) != null && vnode.props.suspensible !== false;
 }
-var ssrContextKey = Symbol.for("v-scx");
-var useSSRContext = () => {
-  {
-    const ctx = inject(ssrContextKey);
-    if (!ctx) {
-      warn$1(
-        `Server rendering context not provided. Make sure to only call useSSRContext() conditionally in the server build.`
-      );
-    }
-    return ctx;
-  }
-};
 function watchEffect(effect2, options) {
   return doWatch(effect2, null, options);
 }
@@ -3279,8 +3267,8 @@ function doWatch(source, cb, {
     getter = () => source.value;
     forceTrigger = isShallow(source);
   } else if (isReactive(source)) {
-    getter = isShallow(source) || deep === false ? () => traverse(source, 1) : () => traverse(source);
-    forceTrigger = true;
+    getter = () => source;
+    deep = true;
   } else if (isArray(source)) {
     isMultiSource = true;
     forceTrigger = source.some((s) => isReactive(s) || isShallow(s));
@@ -3288,7 +3276,7 @@ function doWatch(source, cb, {
       if (isRef(s)) {
         return s.value;
       } else if (isReactive(s)) {
-        return traverse(s, isShallow(s) || deep === false ? 1 : void 0);
+        return traverse(s);
       } else if (isFunction(s)) {
         return callWithErrorHandling(s, instance, 2);
       } else {
@@ -3442,15 +3430,9 @@ function createPathGetter(ctx, path) {
     return cur;
   };
 }
-function traverse(value, depth, currentDepth = 0, seen) {
+function traverse(value, seen) {
   if (!isObject(value) || value["__v_skip"]) {
     return value;
-  }
-  if (depth && depth > 0) {
-    if (currentDepth >= depth) {
-      return value;
-    }
-    currentDepth++;
   }
   seen = seen || /* @__PURE__ */ new Set();
   if (seen.has(value)) {
@@ -3458,18 +3440,18 @@ function traverse(value, depth, currentDepth = 0, seen) {
   }
   seen.add(value);
   if (isRef(value)) {
-    traverse(value.value, depth, currentDepth, seen);
+    traverse(value.value, seen);
   } else if (isArray(value)) {
     for (let i = 0; i < value.length; i++) {
-      traverse(value[i], depth, currentDepth, seen);
+      traverse(value[i], seen);
     }
   } else if (isSet(value) || isMap(value)) {
     value.forEach((v) => {
-      traverse(v, depth, currentDepth, seen);
+      traverse(v, seen);
     });
   } else if (isPlainObject(value)) {
     for (const key in value) {
-      traverse(value[key], depth, currentDepth, seen);
+      traverse(value[key], seen);
     }
   }
   return value;
@@ -4723,7 +4705,6 @@ function useModel(props, name, options = EMPTY_OBJ) {
     warn$1(`useModel() called with prop "${name}" which is not declared.`);
     return ref();
   }
-  const camelizedName = camelize(name);
   const res = customRef((track2, trigger2) => {
     let localValue;
     watchSyncEffect(() => {
@@ -4740,8 +4721,7 @@ function useModel(props, name, options = EMPTY_OBJ) {
       },
       set(value) {
         const rawProps = i.vnode.props;
-        if (!(rawProps && // check if parent has passed v-model
-        (name in rawProps || camelizedName in rawProps) && (`onUpdate:${name}` in rawProps || `onUpdate:${camelizedName}` in rawProps)) && hasChanged(value, localValue)) {
+        if (!(rawProps && name in rawProps) && hasChanged(value, localValue)) {
           localValue = value;
           trigger2();
         }
@@ -4755,7 +4735,7 @@ function useModel(props, name, options = EMPTY_OBJ) {
     return {
       next() {
         if (i2 < 2) {
-          return { value: i2++ ? props[modifierKey] || {} : res, done: false };
+          return { value: i2++ ? props[modifierKey] : res, done: false };
         } else {
           return { done: true };
         }
@@ -9278,6 +9258,18 @@ function h(type, propsOrChildren, children) {
     return createVNode(type, propsOrChildren, children);
   }
 }
+var ssrContextKey = Symbol.for("v-scx");
+var useSSRContext = () => {
+  {
+    const ctx = inject(ssrContextKey);
+    if (!ctx) {
+      warn$1(
+        `Server rendering context not provided. Make sure to only call useSSRContext() conditionally in the server build.`
+      );
+    }
+    return ctx;
+  }
+};
 function isShallow2(value) {
   return !!(value && value["__v_isShallow"]);
 }
@@ -9480,7 +9472,7 @@ function isMemoSame(cached, memo) {
   }
   return true;
 }
-var version = "3.4.3";
+var version = "3.4.0";
 var warn2 = true ? warn$1 : NOOP;
 var ErrorTypeStrings = ErrorTypeStrings$1;
 var devtools = true ? devtools$1 : void 0;
@@ -11104,8 +11096,6 @@ export {
   resolveDynamicComponent,
   resolveDirective,
   Suspense,
-  ssrContextKey,
-  useSSRContext,
   watchEffect,
   watchPostEffect,
   watchSyncEffect,
@@ -11179,6 +11169,8 @@ export {
   isRuntimeOnly,
   computed2 as computed,
   h,
+  ssrContextKey,
+  useSSRContext,
   initCustomFormatter,
   withMemo,
   isMemoSame,
@@ -11221,4 +11213,4 @@ export {
 @vue/runtime-dom/dist/runtime-dom.esm-bundler.js:
   (*! #__NO_SIDE_EFFECTS__ *)
 */
-//# sourceMappingURL=chunk-PPFRG7TZ.js.map
+//# sourceMappingURL=chunk-DZXPXYRK.js.map

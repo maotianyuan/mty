@@ -37,7 +37,7 @@ export default defineConfig({
           { text: '跨端', link: '/前端/跨端/Electron' },
           { text: '框架', link: '/前端/框架' },
           { text: '优化', link: '/前端/优化' },
-          { text: '软技能', link: '/前端/软技能' },
+          { text: '软技能', link: '/前端/软技能/项目主R全历程总结和反思' },
         ]
       },
       {

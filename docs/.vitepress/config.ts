@@ -50,6 +50,12 @@ export default defineConfig({
         ]
       },
       {
+        text: '我的工具',
+        items: [
+          { text: 'JS常用方法', link: 'https://maotianyuan.github.io/ailer' },
+        ]
+      },
+      {
         text: '关于',
         items: [
           { text: '博客', link: 'https://www.yuque.com/mty/here' },

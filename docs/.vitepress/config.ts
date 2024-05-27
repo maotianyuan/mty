@@ -52,7 +52,8 @@ export default defineConfig({
       {
         text: '我的工具',
         items: [
-          { text: 'JS常用方法', link: 'https://maotianyuan.github.io/ailer' },
+          { text: 'Pocket - JS常用方法', link: 'https://maotianyuan.github.io/ailer/packages/pocket/doc/pocket.html' },
+          { text: 'Tiny - Lottie 压缩', link: 'https://maotianyuan.github.io/ailer/packages/tiny/doc/' },
         ]
       },
       {

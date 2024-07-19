@@ -14,7 +14,7 @@ export default defineConfig({
       AutoSidebar({
         collapsed: true,
         ignoreIndexItem: false,
-        ignoreList: ['练习环境','运行题', '算法', '手写'],
+        ignoreList: ['练习环境', '运行题', '算法', '手写'],
         // You can also set options to adjust sidebar data
         // see option document below
       })
@@ -37,7 +37,7 @@ export default defineConfig({
           { text: '跨端', link: '/前端/跨端/Electron' },
           { text: '框架', link: '/前端/框架' },
           { text: '优化', link: '/前端/优化/2C - 直播间' },
-          { text: '软技能', link: '/前端/软技能/项目主R全历程总结和反思' },
+          { text: '经验', link: '/前端/经验/项目主R全历程总结和反思' },
         ]
       },
       {
@@ -69,7 +69,7 @@ export default defineConfig({
       text: '在 GitHub 上编辑此页面'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/maotianyuan/mty'  }
+      { icon: 'github', link: 'https://github.com/maotianyuan/mty' }
     ],
     footer: {
       message: '在 MIT 许可下发布',

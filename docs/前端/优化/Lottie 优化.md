@@ -228,6 +228,7 @@ css 实现成本不高的动画，使用 css 动画，避免 Lottie 层级过多
   };
 ```
 
+
 ## supported 跨端
 动效设计时候，会出现 PC 无问题但 Android 和 iOS 异常，或者 PC 有问题但移动端没问题情况，需动效老师根据各端支持 supported 属性进行设计
 - https://airbnb.io/lottie/#/supported-features

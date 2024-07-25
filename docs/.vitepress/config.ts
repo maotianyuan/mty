@@ -7,7 +7,16 @@ export default defineConfig({
   title: '风禾源泉',
   description: '光阴不再，境遇难得',
   base: '/mty/',
-  head: [['link', { rel: 'icon', href: '/mty/favicon.png' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/mty/favicon.png' }],
+    [
+      'script',
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-5TP0TZ39K5'
+      }
+    ],
+  ],
   vite: {
     plugins: [
       // add plugin

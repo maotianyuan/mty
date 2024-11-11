@@ -45,7 +45,7 @@ export default defineConfig({
           { text: '面试题', link: '/前端/面试题/题目' },
           { text: '跨端', link: '/前端/跨端/Electron' },
           { text: '框架', link: '/前端/框架' },
-          { text: '优化', link: '/前端/优化/2C - 直播间' },
+          { text: '优化', link: '/前端/优化/直播间' },
           { text: '经验', link: '/前端/经验/如何避免稳定性和体验升级成为一场不停歇的拉锯战' },
         ]
       },

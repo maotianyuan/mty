@@ -46,6 +46,7 @@ export default defineConfig({
           { text: '跨端', link: '/前端/跨端/Electron' },
           { text: '框架', link: '/前端/框架' },
           { text: '优化', link: '/前端/优化/直播间' },
+          { text: '其他', link: '/前端/其他/Electron BrowserView层级管理优化：基于位移的创新方案' },
           { text: '经验', link: '/前端/经验/如何避免稳定性和体验升级成为一场不停歇的拉锯战' },
         ]
       },

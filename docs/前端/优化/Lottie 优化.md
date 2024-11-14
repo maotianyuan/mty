@@ -141,7 +141,6 @@ export const getSkinLottie = async (path: string) => {
 ## 三、渲染
 ### 动态修改
 部分复杂动画效果，跟 Lottie 元素对齐的动态数据，可通过 Lottie 修改数据方式修改
-https://wiki.zuoyebang.cc/pages/viewpage.action?pageId=511922527
 
 ```js
 anim.addEventListener('DOMLoaded', () => {
